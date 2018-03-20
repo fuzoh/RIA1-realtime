@@ -20,5 +20,14 @@ class UsersTableSeeder extends Seeder
             'email'        => 'root@unix.io',
             'password'     => bcrypt('secret')
         ]);
+
+        /**
+         * Create a friend for the superuser
+         */
+        User::create([
+            'name'         => 'chmodplusx',
+            'email'        => 'chmod@plus.x',
+            'password'     => bcrypt('secret')
+        ]);
     }
 }

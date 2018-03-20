@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    RIA1-realtime
                 </div>
 
                 <div class="links">
