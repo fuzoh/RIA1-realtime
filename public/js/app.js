@@ -30131,7 +30131,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   name: 'MessageBox',
   data: function data() {
     return {
-      messages: []
+      messages: [],
+      message: {
+        content: ''
+      }
     };
   },
   mounted: function mounted() {
@@ -30143,8 +30146,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this = this;
 
       window.axios.get('api/messages').then(function (res) {
-        console.log(res.data.data);
-        _this.messages.push(res.data.data);
+        _this.messages = res.data.data;
+      }).catch(function (e) {
+        console.error(e);
+      });
+    },
+    pushMessage: function pushMessage() {
+      var _this2 = this;
+
+      window.axios.post('api/messages', {
+        content: this.message.content
+      }).then(function (res) {
+        _this2.messages.push(res.data.data);
       }).catch(function (e) {
         console.error(e);
       });
@@ -30166,14 +30179,62 @@ var render = function() {
     _c(
       "ul",
       { staticClass: "list-group list-group-flush" },
-      _vm._l(_vm.messages, function(value, key) {
+      _vm._l(_vm.messages, function(value) {
         return _c("li", { key: value.id, staticClass: "list-group-item" }, [
-          _vm._v("\n      " + _vm._s(key) + "\n      ")
+          _c("p", [_vm._v(_vm._s(value.content))]),
+          _c("small", { staticClass: "text-right" }, [
+            _vm._v(" " + _vm._s(value.user.name))
+          ])
         ])
       })
     ),
     _vm._v(" "),
-    _vm._m(1)
+    _c("div", { staticClass: "card-footer" }, [
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.message.content,
+              expression: "message.content"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            placeholder: "Message",
+            "aria-label": "Message",
+            "aria-describedby": "basic-addon2"
+          },
+          domProps: { value: _vm.message.content },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.message, "content", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group-append" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-secondary",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  _vm.pushMessage()
+                }
+              }
+            },
+            [_vm._v("Send")]
+          )
+        ])
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
@@ -30183,36 +30244,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c("strong", [_vm._v("Messages")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer" }, [
-      _c("div", { staticClass: "input-group mb-3" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            id: "message",
-            type: "text",
-            placeholder: "Message",
-            "aria-label": "Message",
-            "aria-describedby": "basic-addon2"
-          }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group-append" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-outline-secondary",
-              attrs: { id: "send", type: "button" }
-            },
-            [_vm._v("Send")]
-          )
-        ])
-      ])
     ])
   }
 ]

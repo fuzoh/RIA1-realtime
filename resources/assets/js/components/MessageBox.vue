@@ -3,7 +3,10 @@ export default {
   name: 'MessageBox',
   data () {
     return {
-      messages: []
+      messages: [],
+      message: {
+        content: ''
+      }
     }
   },
   mounted () {
@@ -12,7 +15,15 @@ export default {
   methods: {
     fetchMessages () {
       window.axios.get('api/messages').then((res) => {
-        console.log(res.data.data)
+        this.messages = res.data.data
+      }).catch((e) => {
+        console.error(e)
+      })
+    },
+    pushMessage () {
+      window.axios.post('api/messages', {
+        content: this.message.content
+      }).then((res) => {
         this.messages.push(res.data.data)
       }).catch((e) => {
         console.error(e)
@@ -28,17 +39,16 @@ export default {
 
     <ul class="list-group list-group-flush">
 
-      <li class="list-group-item" v-for="(value, key) of messages" :key="value.id">
-        {{key}}
-        <!-- <p>{{ value.content }}</p><small class="text-right"> {{ value.user.name }}</small> -->
+      <li class="list-group-item" v-for="value of messages" :key="value.id">
+        <p>{{ value.content }}</p><small class="text-right"> {{ value.user.name }}</small>
       </li>
     </ul>
 
     <div class="card-footer">
       <div class="input-group mb-3">
-        <input id="message" type="text" class="form-control" placeholder="Message" aria-label="Message" aria-describedby="basic-addon2">
+        <input v-model="message.content" type="text" class="form-control" placeholder="Message" aria-label="Message" aria-describedby="basic-addon2">
         <div class="input-group-append">
-          <button id="send" class="btn btn-outline-secondary" type="button">Send</button>
+          <button @click="pushMessage()" class="btn btn-outline-secondary" type="button">Send</button>
         </div>
       </div>
     </div>
