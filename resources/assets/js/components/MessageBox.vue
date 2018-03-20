@@ -37,12 +37,16 @@ export default {
   <div id="message-box" class="card">
     <div class="card-header"><strong>Messages</strong></div>
 
-    <ul class="list-group list-group-flush">
+    <div class="force-overflow">
 
-      <li class="list-group-item" v-for="value of messages" :key="value.id">
-        <p>{{ value.content }}</p><small class="text-right"> {{ value.user.name }}</small>
-      </li>
-    </ul>
+      <ul class="list-group list-group-flush">
+
+        <li class="list-group-item" v-for="value of messages" :key="value.id">
+          <p>{{ value.content }}</p><small class="text-right"> {{ value.user.name }}</small>
+        </li>
+      </ul>
+
+    </div>
 
     <div class="card-footer">
       <div class="input-group mb-3">
@@ -54,3 +58,13 @@ export default {
     </div>
   </div>
 </template>
+
+<style>
+#message-box {
+  height: 90%;
+}
+.force-overflow {
+  overflow: scroll;
+  max-height: 100%;
+}
+</style>
