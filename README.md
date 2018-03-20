@@ -33,9 +33,10 @@ php artisan serve
 
 ## User
 
-| email        | username | pass   |
-|--------------|----------|--------|
-| root@unix.io | root     | secret |
+| email        | username   | pass   |
+|--------------|------------|--------|
+| root@unix.io | root       | secret |
+| chmod@plus.x | chmodplusx | secret |
 
 ## Official docs
 

@@ -13,24 +13,7 @@
                     </div>
                 </div>
             @endif
-            <div class="card">
-                <div class="card-header"><strong>Messages</strong></div>
-
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
-
-                <div class="card-footer">
-                    <div class="input-group mb-3">
-                        <input id="message" type="text" class="form-control" placeholder="Message" aria-label="Message" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button id="send" class="btn btn-outline-secondary" type="button">Send</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <message-box></message-box>
         </div>
     </div>
 </div>
