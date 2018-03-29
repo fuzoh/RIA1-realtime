@@ -1,0 +1,13 @@
+{
+  "name": "RIA1-realtime",
+  "version": "1.0.0",
+  "description": "Little chat with websokets",
+  "main": "index.js",
+  "repository": "git@github.com:bastiennicoud/RIA1-realtime.git",
+  "author": "Bastien <bastien.nicoud@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.15.2",
+    "socket.io": "^2.0.4"
+  }
+}
