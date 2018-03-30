@@ -26,7 +26,11 @@ Il existe un certian nombre d'implémentations des websokets coté serveur, qui 
 
 ## Support par les navigateurs
 
+Tous les navigateurs récents suportent les websokets [Can I use](https://caniuse.com/#feat=websockets). Attention cependant, certians navigateurs mobiles ne le suporte pas encore.
+
 ## Lien avec le module RIA
+
+L'utilisation de temps réel permet d'apporter des fonctionnalités très intérésantes pour une application web riche.
 
 ## Exemple
 
@@ -34,6 +38,16 @@ Il existe un certian nombre d'implémentations des websokets coté serveur, qui 
 
 ## En bref !
 
+Les websokets permettent d'ouvrir un canal de comunication full-duplex entre client et serveur. On va ensuite pouvoir envoyer/recevoir des événements via un systeme de cannaux et d'événements.
+
 ## Pour aller plus loin
 
+* [Firebase](https://firebase.google.com/) : une base de données temps réel utilisant les websokets.
+* [Laravel Echo](https://laravel.com/docs/5.6/broadcasting) : Permet de lier facilement un serveur de websokets (socket.io) a une application laravel, en utilisant [redis](https://redis.io/) pour comuniquer entre laravel et node.
+
 ## Références / sources
+
+* [fr.wikipedia.org/wiki/WebSocket](https://fr.wikipedia.org/wiki/WebSocket)
+* [developer.mozilla.org/fr/docs/WebSockets](https://developer.mozilla.org/fr/docs/WebSockets)
+* [developer.mozilla.org/fr/docs/WebSockets/Writing_WebSocket_client_applications](https://developer.mozilla.org/fr/docs/WebSockets/Writing_WebSocket_client_applications)
+* [www.websocket.org/](https://www.websocket.org/)
