@@ -34,7 +34,11 @@ L'utilisation de temps réel permet d'apporter des fonctionnalités très intér
 
 ## Exemple
 
+Une exemple de petit chat : [ici](example/README.md).
+
 ## Exercice
+
+Faire boujer un petit cube en temps réel dans un svg entre plusieurs navigateurs : [ici](exercice/README.md).
 
 ## En bref !
 
@@ -44,6 +48,7 @@ Les websokets permettent d'ouvrir un canal de comunication full-duplex entre cli
 
 * [Firebase](https://firebase.google.com/) : une base de données temps réel utilisant les websokets.
 * [Laravel Echo](https://laravel.com/docs/5.6/broadcasting) : Permet de lier facilement un serveur de websokets (socket.io) a une application laravel, en utilisant [redis](https://redis.io/) pour comuniquer entre laravel et node.
+* [Pusher](https://pusher.com/) : une API toute prete pour travailler avec les websokets.
 
 ## Références / sources
 

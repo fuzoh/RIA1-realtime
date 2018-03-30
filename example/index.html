@@ -24,15 +24,19 @@
       <button id="b">Send</button>
     </div>
     <script>
-      // Initialize connexion
+      // Initialize connexion to websokets
       let socket = io()
+      
+      // Fires a new event on the chat message channel when the user click's on the send button
       document.getElementById('b').addEventListener('click', (e) => {
-        console.log(document.getElementById('m').value)
         socket.emit('chat message', document.getElementById('m').value)
+        // Reset the message field
         document.getElementById('m').value = ''
-        return false
       })
-      socket.on('chat message', (msg) => { 
+
+      // Observes new messages on the "chat message" channel
+      socket.on('chat message', (msg) => {
+        // On new message, append it in the page
         document.getElementById('messages').insertAdjacentHTML('beforeend', `<li>${msg}</li>`) 
       })
     </script>
