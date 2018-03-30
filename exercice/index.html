@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <title>RIA 1 realtime chat - with socket.io</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 40px Helvetica, Arial; }
+      .content { width: 100%; height: 100%; display: flex; justify-content: center; }
+      svg { background-color: floralwhite; }
+    </style>
+    <!-- Load the socket.io client library -->
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div class="content">
+      <svg id="mySvg" version="1.1" xmlns="http://www.w3.org/2000/svg" width="600px" height="400px">
+        <rect id="cube" x="290px" y="190px" width="20" height="20"/>
+      </svg>
+    </div>
+    <script>
+      // Initialize connexion to websokets
+      let socket = io()
+
+      // initialize the base position of the cube
+      let x = 290
+      let y = 190
+
+      // Functions to move the svg cube
+      function moveCube (posX, posY) {
+        document.getElementById('cube').setAttribute("x", `${posX}px`)
+        document.getElementById('cube').setAttribute("y", `${posY}px`)
+      }
+
+      // Fires the positions on the websokets
+      function moveX (posX) {
+        // Emit the position x on the websokets
+        
+      }
+
+      function moveY (posY) {
+        // Emit the position y on the websokets
+        
+      }
+
+      // Listen to the events and call the move function on changes
+      // Listen the "position x" channel
+      
+        // Cote to move the cube
+        x = posX
+        moveCube (x, y)
+      
+
+      // Listen the "position y" channel
+      
+        // Cote to move the cube
+        y = posY
+        moveCube (x, y)
+
+
+      // Detects the arrow key pressed
+      window.onkeydown = function (event) {
+          var keyPr = event.keyCode; //Key code of key pressed
+        
+          if(keyPr === 39 && x<590){ 
+              x = x+20; //right arrow add 20 from current
+              moveX(x)
+          }
+          else if(keyPr === 37 && x>=0){
+              x = x-20; //left arrow subtract 20 from current
+              moveX(x)
+          }
+          else if(keyPr === 38 && y>=0) {
+              y = y-20; //top arrow subtract 20 from current
+              moveY(y)
+          }
+          else if(keyPr === 40 && y<390){
+              y = y+20; //bottom arrow add 20 from current
+              moveY(y)
+          }
+      };
+    </script>
+  </body>
+</html>
