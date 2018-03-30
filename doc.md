@@ -2,7 +2,7 @@
 
 ## Problématique
 
-Avec l'arrivée d'applications web de plus en plus interactives et réactives, il étais nésaisaire de développer un protocole full-duplex qui permette de comuniquer entre un serveur des des clients (navigateurs) web. L'objectif est principalement de pouvoir posser des données vers les clients en temps réel (pas de rechargement de pages, pas d'autoload). Et de permettre au client de streamer du contenu vers le serveur.
+Avec l'arrivée d'applications web de plus en plus interactives et réactives, il étais nésaisaire de développer un protocole full-duplex qui permette de comuniquer entre un serveur des des clients (navigateurs) web. L'objectif est principalement de pouvoir pousser des données vers les clients en temps réel (pas de rechargement de pages, pas d'autoload). Et de permettre au client de streamer du contenu vers le serveur.
 
 Exemple : les applications de messagerie (whatsapp web, telegram) utilisent ce protocole pour récupérer et pousser des messages sans rechargement.
 
@@ -20,17 +20,17 @@ Il existe un certian nombre d'implémentations des websokets coté serveur, qui 
 
 * **[ActionCable](http://guides.rubyonrails.org/action_cable_overview.html)** : est l'implémentation pour [Ruby](https://www.ruby-lang.org/fr/) fournie avec [Rails](http://rubyonrails.org/).
 * **[soket.io](https://socket.io/)** : une implémentation pour [node.js](https://nodejs.org/en/) très polyvalente et pérformante.
-* **[Phoenix.Socket](https://hexdocs.pm/phoenix/Phoenix.Socket.html#content)** : une implémentation en [Elixir](https://elixir-lang.org/) livrée avec le framework [Phoenix](http://phoenixframework.org/). Très intérésantes car on bénéficie de grandes capacités, du a la très bonne gestion de la concurence du langage elixir.
+* **[Phoenix.Socket](https://hexdocs.pm/phoenix/Phoenix.Socket.html#content)** : une implémentation en [Elixir](https://elixir-lang.org/) livrée avec le framework [Phoenix](http://phoenixframework.org/). Très intéresante car on bénéficie de grandes capacités (millions de connexions simultanées sur un seul serveur), du au langage elixir qui est conçu pour la gestion de très grand concurence.
 * **[Gorilla WebSocket](https://github.com/gorilla/websocket)** : Une implémentation en [golang](https://golang.org/).
 * ...et plein d'autres
 
 ## Support par les navigateurs
 
-Tous les navigateurs récents suportent les websokets [Can I use](https://caniuse.com/#feat=websockets). Attention cependant, certians navigateurs mobiles ne le suporte pas encore.
+Tous les navigateurs récents suportent les websokets : [tableau ici](https://caniuse.com/#feat=websockets). Attention cependant, certians navigateurs mobiles ne le suporte pas encore.
 
 ## Lien avec le module RIA
 
-L'utilisation de temps réel permet d'apporter des fonctionnalités très intérésantes pour une application web riche.
+L'utilisation de temps réel permet d'apporter des fonctionnalités très intérésantes pour une application web riche. Mise a jour de contenu en direct, retours plus réactifa a l'utilisateur...
 
 ## Exemple
 
@@ -42,7 +42,7 @@ Faire boujer un petit cube en temps réel dans un svg entre plusieurs navigateur
 
 ## En bref !
 
-Les websokets permettent d'ouvrir un canal de comunication full-duplex entre client et serveur. On va ensuite pouvoir envoyer/recevoir des événements via un systeme de cannaux et d'événements.
+Les websokets permettent d'ouvrir un canal de comunication full-duplex entre client et serveur. On va ensuite pouvoir envoyer/recevoir des messages via un systeme de cannaux et d'événements.
 
 ## Pour aller plus loin
 
