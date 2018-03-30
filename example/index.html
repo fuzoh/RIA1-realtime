@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title>RIA 1 realtime chat - with socket.io</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 40px Helvetica, Arial; }
+      .form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      .form input { font-size: 40px; border: 0; padding: 10px; width: 68%; margin-right: .5%; }
+      .form button { font-size: 40px; width: 30%; background: gainsboro; border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>
+    <!-- Load the socket.io client library -->
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <ul id="messages">
+      <!-- Here the list of messages will be inserted -->
+    </ul>
+    <div class="form">
+      <input id="m" autocomplete="off" />
+      <button id="b">Send</button>
+    </div>
+    <script>
+      // Initialize connexion
+      let socket = io()
+      document.getElementById('b').addEventListener('click', (e) => {
+        console.log(document.getElementById('m').value)
+        socket.emit('chat message', document.getElementById('m').value)
+        document.getElementById('m').value = ''
+        return false
+      })
+      socket.on('chat message', (msg) => { 
+        document.getElementById('messages').insertAdjacentHTML('beforeend', `<li>${msg}</li>`) 
+      })
+    </script>
+  </body>
+</html>

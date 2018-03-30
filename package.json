@@ -1,5 +1,5 @@
 {
-  "name": "RIA1-realtime",
+  "name": "ria1-realtime",
   "version": "1.0.0",
   "description": "Little chat with websokets",
   "main": "index.js",
