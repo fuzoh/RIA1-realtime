@@ -12,6 +12,20 @@ Pourquoi ne pas utiliser de l'ajax ?? L'ajax ne permet pas d'ouvrir un canal ent
 
 Pour remédier a la problématique, on protocole a été développé et standardisé, les [websokets](https://developer.mozilla.org/fr/docs/WebSockets).
 
+Le protocole websocket permet d'ouvrir un canal de comunication **client <-> serveur**. Il va permettre d'envoyer et recevoir des messages sous forme d'événements. Tout ça sans avoir a consulter le serveur pour récupérer les nouveaux messages, ils sont poussés depuis le serveur via le protocole.
+
+## Librairies / implémentations
+
+Il existe un certian nombre d'implémentations des websokets coté serveur, qui viennent la plupart avec une petite librairie javascript pour facilement utiliser les websokets depuis le client.
+
+* **[ActionCable](http://guides.rubyonrails.org/action_cable_overview.html)** : est l'implémentation pour [Ruby](https://www.ruby-lang.org/fr/) fournie avec [Rails](http://rubyonrails.org/).
+* **[soket.io](https://socket.io/)** : une implémentation pour [node.js](https://nodejs.org/en/) très polyvalente et pérformante.
+* **[Phoenix.Socket](https://hexdocs.pm/phoenix/Phoenix.Socket.html#content)** : une implémentation en [Elixir](https://elixir-lang.org/) livrée avec le framework [Phoenix](http://phoenixframework.org/). Très intérésantes car on bénéficie de grandes capacités, du a la très bonne gestion de la concurence du langage elixir.
+* **[Gorilla WebSocket](https://github.com/gorilla/websocket)** : Une implémentation en [golang](https://golang.org/).
+* ...et plein d'autres
+
+## Support par les navigateurs
+
 ## Lien avec le module RIA
 
 ## Exemple
