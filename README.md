@@ -17,7 +17,7 @@ git clone git@github.com:bastiennicoud/RIA1-realtime.git
 git clone https://github.com/bastiennicoud/RIA1-realtime.git
 ```
 
-2. Ouvrez un terminal, puis rendez vous la le dossier fraichement cloné.
+2. Ouvrez un terminal, puis rendez vous dans le dossier fraichement cloné.
 3. Installez les dépendances node.js
 ```sh
 npm install
